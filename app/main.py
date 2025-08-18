@@ -7,4 +7,4 @@ app.include_router(time_router)
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the FastAPI Time API"}
+    return {"message": "Que onda perros!"}
