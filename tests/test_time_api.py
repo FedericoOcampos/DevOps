@@ -15,3 +15,5 @@ def test_current_time():
     assert 'current_time' in data
     # simple format check: ISO-like with 'T' or just presence
     assert isinstance(data['current_time'], str) and len(data['current_time']) > 0
+    # mensaje adicional
+    assert data.get('message') == 'Que onda perros!'
