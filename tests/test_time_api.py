@@ -11,7 +11,9 @@ def test_root():
 def test_current_time():
     res = client.get('/current-time')
     assert res.status_code == 200
-    data = res.json()
-    assert 'current_time' in data
-    # simple format check: ISO-like with 'T' or just presence
-    assert isinstance(data['current_time'], str) and len(data['current_time']) > 0
+    text = res.text
+    lines = text.splitlines()
+    assert lines[0] == 'Que onda perros!'
+    assert len(lines) >= 2
+    from datetime import datetime as _dt
+    _dt.fromisoformat(lines[1])
